@@ -16,6 +16,24 @@ alert('"' + 'Формула: ' + number + ' + ' + addNumber + ' - ' + substructN
 
 
 
+// Задание 2
+
+var login = prompt('Введин логин:');
+
+if(login === "Админ"){
+    var password = prompt('Введите пароль');
+    if (password === "Чёрный Властелин") {
+        alert('Добро пожаловать!');
+    } else if(password === null) {
+        alert ('Вход отменен')
+    } else {
+        alert ('Пароль неверен')
+    }
+} else if(login === null){
+    alert ('Вход отменен');
+} else {
+    alert ('Я вас не знаю');
+}
 
 
 
