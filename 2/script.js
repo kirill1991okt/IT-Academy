@@ -12,7 +12,7 @@ var divide = +prompt('Сколько разделить от предыдуще�
 
 var result = (number + addNumber - substructNumber) * multiply / divide;
 
-alert('"' + 'Формула: ' + number + ' + ' + addNumber + ' - ' + substructNumber + ' * ' + multiply + ' / ' + divide + ' \n ' + 'Результат: '  + result + '"');
+alert('"' + 'Формула: ' + number + ' + ' + addNumber + ' - ' + substructNumber + ' * ' + multiply + ' / ' + divide + ' \n ' + 'Результат: ' + result + '"');
 
 
 
@@ -20,19 +20,19 @@ alert('"' + 'Формула: ' + number + ' + ' + addNumber + ' - ' + substructN
 
 var login = prompt('Введин логин:');
 
-if(login === "Админ"){
+if (login === "Админ") {
     var password = prompt('Введите пароль');
     if (password === "Чёрный Властелин") {
         alert('Добро пожаловать!');
-    } else if(password === null) {
-        alert ('Вход отменен')
+    } else if (password === null) {
+        alert('Вход отменен')
     } else {
-        alert ('Пароль неверен')
+        alert('Пароль неверен')
     }
-} else if(login === null){
-    alert ('Вход отменен');
+} else if (login === null) {
+    alert('Вход отменен');
 } else {
-    alert ('Я вас не знаю');
+    alert('Я вас не знаю');
 }
 
 
@@ -40,9 +40,9 @@ if(login === "Админ"){
 
 var message;
 
-(login === 'Вася') ? message = 'Привет' :
-(login === 'Директор') ? message = 'Здравствуйте' : 
-(login === '') ? message  = 'Нет логина' : message = '';
+(login === 'Вася') ? message = 'Привет':
+    (login === 'Директор') ? message = 'Здравствуйте' :
+    (login === '') ? message = 'Нет логина' : message = '';
 
 
 
@@ -50,39 +50,56 @@ var message;
 
 var firstName = prompt('Ваша фамилия');
 
-while (firstName === ''){
-    alert ('Ошибка, введите корректные данные')
-    var firstName = prompt('Ваша фамилия');
+while (firstName === '') {
+    alert('Ошибка, введите корректные данные');
+    firstName = prompt('Ваша фамилия');
+}
+if (firstName === null) {
+    firstName = '-';
 }
 
-if(firstName === null) {
-    firstName = '-';
-}  
-
 var name = prompt('Ваше имя');
+
+while (name === '') {
+    alert('Ошибка, введите корректные данные');
+    name = prompt('Ваша фамилия');
+}
+if (name === null) {
+    name = '-';
+}
+
 var patronymic = prompt('Ваше отчество');
+while (patronymic === '') {
+    alert('Ошибка, введите корректные данные');
+    patronymic = prompt('Ваша фамилия');
+}
+if (patronymic === null) {
+    patronymic = '-';
+}
 
 
 
-var ageInYear = parseInt(prompt('Возраст в годах'));
-var ageInDay = ageInYear*365;
+var ageInYear = +prompt('Возраст в годах');
+while (isNaN(ageInYear) || ageInYear === '' || ageInYear > 100 || ageInYear === null) {
+    alert('Ошибка, введите корректные данные');
+    ageInYear = +prompt('Возраст в годах');
+}
+var ageInDay = ageInYear * 365;
 var ageFromFiveYear = ageInYear + 5;
 
 // var askGender = confirm('Ваш пол - мужской?');
 
-var gender = (confirm('Ваш пол - мужской?')) ? 'мужской' : 'женский'
+var gender = (confirm('Ваш пол - мужской?')) ? 'мужской' : 'женский';
 
 
 
-var retired = (ageInYear > 62.5 && gender === 'мужской') ? 'да' : 
-              (ageInYear > 57.5 && gender === 'женский') ? 'да' : 'нет';
+var retired = (ageInYear > 62.5 && gender === 'мужской') ? 'да' :
+    (ageInYear > 57.5 && gender === 'женский') ? 'да' : 'нет';
 
 
-alert ('"Ваше ФИО: ' + firstName + ' ' + name + ' ' + patronymic + ' \n ' + 
+alert('"Ваше ФИО: ' + firstName + ' ' + name + ' ' + patronymic + ' \n ' +
     'Ваш возраст в годах: ' + ageInYear + ' \n ' +
     'Ваш возраст в днях: ' + ageInDay + ' \n ' +
-    'Через 5 лет вам будет: ' + ageFromFiveYear + ' \n ' + 
-    'Ваш пол: ' + gender + ' \n ' + 
+    'Через 5 лет вам будет: ' + ageFromFiveYear + ' \n ' +
+    'Ваш пол: ' + gender + ' \n ' +
     'Вы на пенсии: ' + retired + '"');
-
-
