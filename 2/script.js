@@ -58,14 +58,14 @@ if (firstName === null) {
     firstName = '-';
 }
 
-var name = prompt('Ваше имя');
+var name1 = prompt('Ваше имя');
 
-while (name === '') {
+while (name1 === '') {
     alert('Ошибка, введите корректные данные');
-    name = prompt('Ваша фамилия');
+    name1 = prompt('Ваша фамилия');
 }
-if (name === null) {
-    name = '-';
+if (name1 === null) {
+    name1 = '-';
 }
 
 var patronymic = prompt('Ваше отчество');
@@ -80,24 +80,24 @@ if (patronymic === null) {
 
 
 var ageInYear = +prompt('Возраст в годах');
-while (isNaN(ageInYear) || ageInYear === '' || ageInYear > 100 || ageInYear === null) {
+while (isNaN(ageInYear) || ageInYear === '' || ageInYear > 100 || ageInYear <= 0) {
     alert('Ошибка, введите корректные данные');
     ageInYear = +prompt('Возраст в годах');
 }
+
+// Вместо isNaN(ageInYear) можно использовать ageInYear !== NaN, т.к. NaN не равно NaN.
+
 var ageInDay = ageInYear * 365;
 var ageFromFiveYear = ageInYear + 5;
 
-// var askGender = confirm('Ваш пол - мужской?');
 
 var gender = (confirm('Ваш пол - мужской?')) ? 'мужской' : 'женский';
-
-
 
 var retired = (ageInYear > 62.5 && gender === 'мужской') ? 'да' :
     (ageInYear > 57.5 && gender === 'женский') ? 'да' : 'нет';
 
 
-alert('"Ваше ФИО: ' + firstName + ' ' + name + ' ' + patronymic + ' \n ' +
+alert('"Ваше ФИО: ' + firstName + ' ' + name1 + ' ' + patronymic + ' \n ' +
     'Ваш возраст в годах: ' + ageInYear + ' \n ' +
     'Ваш возраст в днях: ' + ageInDay + ' \n ' +
     'Через 5 лет вам будет: ' + ageFromFiveYear + ' \n ' +
