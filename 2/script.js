@@ -12,7 +12,7 @@ var divide = +prompt('Сколько разделить от предыдуще�
 
 var result = (number + addNumber - substructNumber) * multiply / divide;
 
-alert('"' + 'Формула: ' + number + ' + ' + addNumber + ' - ' + substructNumber + ' * ' + multiply + ' / ' + divide + ' \n ' + 'Результат: ' + result + '"');
+alert('Формула: ' + '(' + number + ' + ' + addNumber + ' - ' + substructNumber + ')' + ' * ' + multiply + ' / ' + divide + ' \n ' + 'Результат: ' + result);
 
 
 
@@ -38,9 +38,7 @@ if (login === "Админ") {
 
 // Задача 3
 
-var message;
-
-(login === 'Вася') ? message = 'Привет':
+var message = (login === 'Вася') ? message = 'Привет' :
     (login === 'Директор') ? message = 'Здравствуйте' :
     (login === '') ? message = 'Нет логина' : message = '';
 
@@ -80,7 +78,7 @@ if (patronymic === null) {
 
 
 var ageInYear = +prompt('Возраст в годах');
-while (isNaN(ageInYear) || ageInYear === '' || ageInYear > 100 || ageInYear <= 0) {
+while (isNaN(ageInYear) || ageInYear === '' || ageInYear > 100 || ageInYear <= 5) {
     alert('Ошибка, введите корректные данные');
     ageInYear = +prompt('Возраст в годах');
 }
