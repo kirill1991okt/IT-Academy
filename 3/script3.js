@@ -54,3 +54,32 @@ for (var i = 0; i < arr.length; i++) {
 }
 
 Alert(sum);
+
+
+// Задание 4
+
+var array = [3,4,5,6,7,8,9,10];
+
+for (var i = 0; i < array.length; i++){
+    // if (array[i] === 2) {
+    //     console.log(array[i]);
+    // }
+    // console.log('Здесь арай ' + array[i]);
+    for (var j = 2; j < array[i]; j++){
+
+        if(array[i] % j == 0){
+            console.log ('hello' + array[i]);
+        }
+        // console.log('Здесь арай1 ' + array[i]);
+        // console.log (j)
+
+        // if (array[i] % j != 0) {  
+
+        //      console.log ( 'а тут что ' + array[i])
+            
+        //     } 
+
+    } 
+   
+}
+
