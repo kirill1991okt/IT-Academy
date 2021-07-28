@@ -51,16 +51,16 @@ Alert(sum);
 
 // Задание 4
 
-var array = [3, 4, 5, 6, 7, 8, 9, 10];
+var array = [3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15,16,17,2];
 
-for (var i = 0; i < array.length; i++) {
-  if (array[i] === 2) {
-    console.log(array[i]);
-  }
+abc:for (var i = 0; i < array.length; i++) {
 
   for (var j = 2; j < array[i]; j++) {
-    if (array[i] % j !== 0) {
-      console.log(j)
-    }
+    if (array[i] % j == 0) continue abc;
   }
+
+  console.log(array[i]);
 }
+
+// continue срабатывает когда во втором цикле for одно из чисел будет равно 0, в условии сработает true и первый цикл for перейдет на новую этерацию. 
+// Если во втором цикле for число ни разу не будет ровняться 0, то вычисление перейдет в console.log и выведит необходимое нам число(простое число).  
