@@ -7,3 +7,16 @@ function isObject (obj){
     }
     return true;
 }
+
+// Задание 2
+
+function pow(x,n) {
+    if(n < 1) {
+        return alert('Число должно быть больше 1');
+    } 
+    var multi = 1;
+    for (var i = 0; i < n; i++){  
+        multi *= x;
+    }
+    return multi;
+}
