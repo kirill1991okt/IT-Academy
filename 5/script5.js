@@ -1,9 +1,8 @@
 //  Задание 1
 
-function isObject(obj) {
+function isEmpty(obj) {
   for (var key in obj) {
-    var isKey = key in obj;
-    return !isKey;
+    return false;
   }
   return true;
 }
@@ -20,6 +19,18 @@ function pow(x, n) {
   }
   return multi;
 }
+
+function makePow() {
+  var x = +prompt('Введите число, которое хотите возвести в степень');
+
+  var n = +prompt('Введите степень, в которую хотите возвести');
+
+  return alert(pow(x, n));
+
+}
+
+makePow();
+
 
 // Задание 3
 
@@ -63,7 +74,9 @@ function sumTo(n) {
 //Gосчитать sumTo(100000) нельзя, т.к. максимальная глубина рекурсии ограничена движком JavaScript
 
 // Задание 4
-var array = [5, 7, [4, [2], 8, [1, 3], 2], [9, []], 1, 8];
+var array = [5, 7, [4, [2], 8, [1, 3], 2],
+  [9, []], 1, 8
+];
 
 function treeSum(arr) {
   var sum = 0;
@@ -72,8 +85,8 @@ function treeSum(arr) {
       sum += arr[i];
     } else if (
       typeof arr[i] === "object" &&
-      arr[i].length > 0 &&
-      arr[i] !== null
+      arr[i] !== null &&
+      arr[i].length > 0
     ) {
       sum += treeSum(arr[i]);
     }
