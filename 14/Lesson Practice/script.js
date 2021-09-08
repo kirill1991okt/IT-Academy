@@ -8,3 +8,28 @@ secondPar.innerHTML = 'Hello, here are <a href="http://google.by">Link 3</a> and
 
 container.appendChild(firstPar);
 container.appendChild(secondPar);
+
+var btn = document.getElementsByTagName('button')[0];
+
+var links1 = btn.nextElementSibling.firstElementChild.children;
+
+
+btn.onclick = function () {
+    for (var i = 0; i < links1.length; i++) {
+        links1[i].classList.toggle('firstLink');
+    }
+};
+
+var paragraph2 = document.getElementsByTagName('p')[1];
+
+paragraph2.addEventListener('click', function (event) {
+    if (event.target.tagName == 'A') {
+        event.preventDefault();
+    }
+
+
+    console.log(event.target.getAttribute('href'));
+    console.log(event.target);
+    console.dir(event.target);
+    // console.log(event.target.href);  второй вариант получения ссылки
+})
