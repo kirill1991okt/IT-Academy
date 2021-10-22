@@ -1,81 +1,73 @@
 var email = document.getElementById('email'),
-    password = document.getElementById('password'),
-    btn = document.getElementById('btn'),
-    form = document.querySelector('form'),
-    inputs = document.getElementsByTagName('input');
+  password = document.getElementById('password'),
+  btn = document.getElementById('btn'),
+  form = document.querySelector('form'),
+  inputs = document.getElementsByTagName('input');
 
 if (localStorage.getItem('id')) {
-    form.innerHTML = 'User ' + localStorage.getItem('id') + ' has been successfully registered';
+  form.innerHTML =
+    'User ' + localStorage.getItem('id') + ' has been successfully registered';
 }
 
-
 form.addEventListener('submit', function (event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    var xhr = new XMLHttpRequest();
+  var xhr = new XMLHttpRequest();
 
-    xhr.open('POST', 'https://reqres.in/api/register');
+  xhr.open('POST', 'https://reqres.in/api/register');
 
-    xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('Content-Type', 'application/json');
 
-    xhr.send(JSON.stringify({
-        'email': email.value,
-        'password': password.value
-    }));
+  xhr.send(
+    JSON.stringify({
+      email: email.value,
+      password: password.value,
+    })
+  );
 
-    xhr.onload = function () {
+  xhr.onload = function () {
+    var statusType = +String(this.status)[0];
 
-        var statusType = +String(this.status)[0];
+    if (statusType === 2 || statusType === 3) {
+      var idUser = JSON.parse(this.response).id;
+      setLocalStorage(idUser);
+    } else {
+      clearInputAndChangColor();
+      createErrorDiv(this);
+    }
+  };
 
-        if (statusType === 2 || statusType === 3) {
-            var idUser = JSON.parse(this.response).id;
-            setLocalStorage(idUser);
-        } else {
-            clearInputAndChangColor();
-            createErrorDiv(this);
-        }
+  xhr.onerror = function () {
+    console.log(this.status);
+  };
 
-    };
-
-    xhr.onerror = function () {
-        console.log(this.status);
-    };
-
-    xhr.onloadend = function () {
-        console.log('загрузка завершена');
-    };
-
+  xhr.onloadend = function () {
+    console.log('загрузка завершена');
+  };
 });
 
 function createErrorDiv(obj) {
-    if (btn.nextElementSibling === null) {
-        var errorStatus = document.createElement('div');
-        errorStatus.classList.add('divError');
-        errorStatus.innerText = obj.response;
-        form.appendChild(errorStatus);
-    }
-
+  var errorStatus = document.createElement('div');
+  errorStatus.classList.add('divError');
+  errorStatus.innerText = JSON.parse(obj.response).error;
+  form.appendChild(errorStatus);
+  if (errorStatus.previousElementSibling.tagName === 'DIV') {
+    errorStatus.previousElementSibling.remove();
+  }
+  console.dir(errorStatus.previousElementSibling);
 }
 
 function clearInputAndChangColor() {
-    for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = '';
-        inputs[i].classList.add('error');
-    }
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].value = '';
+    inputs[i].classList.add('error');
+  }
 }
 
 function setLocalStorage(idUser) {
-    localStorage.setItem('id', idUser);
-    form.innerHTML = 'User ' + idUser + ' has been successfully registered';
+  localStorage.setItem('id', idUser);
+  form.innerHTML = 'User ' + idUser + ' has been successfully registered';
 }
-
-
-
-
-
-
-
-
 
 /* Задание 1:
   Сверстать форму регистрации пользователя с двумя полями - Email и Password, и кнопкой Register (type="submit").
