@@ -1,0 +1,37 @@
+КООРДИНАТЫ И АНИМАЦИИ
+  - Координаты относительно окна и документа - https://learn.javascript.ru/coordinates
+  - Координаты относительно экрана - https://learn.javascript.ru/coordinates-document
+  - Mouse-события также хранят всю информацию о координатах в объекте event
+  - Методы window.scroll() и window.scrollTo() - https://developer.mozilla.org/en-US/docs/Web/API/Window/scroll
+  - Метод window.scrollBy() - https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollBy
+  - Свойства element.scrollTop и element.scrollLeft (скроллинг к опред. координатам) -
+    https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTop
+  - Слайд F.67a - Наращивание координат по таймеру
+  - Можно использовать готовые библиотеки для создания анимаций
+
+JQUERY
+  - Подключение библиотеки - http://www.wisdomweb.ru/JQ/jquery-first.php
+  - Селекторы - http://www.wisdomweb.ru/JQd/selectors.php
+  - Действия, как правило, применяются ко всей коллекции
+  - jQuery UI Виджеты
+  - На итоговом проекте jQuery и jQuery UI не будут оцениваться в качестве самостоятельно изученной технологии
+
+ТЕСТЫ
+  Виды тестов:
+    - Acceptance-тесты - тестирование системы в целом, например, перейти на такую-то страницу, ввести запрос в поле
+      поиска, убедиться что отобразились новые блоки с искомой информацией
+    - Unit-тесты - тестирование отдельного модуля (одного файла), например тестирование работы методов класса
+    - Integration-тесты - тестирование взаимодействия нескольких модулей сразу
+  Пример синтаксиса и написания тестов:
+    - https://learn.javascript.ru/testing-mocha
+  Виды туллзов для тестирования:
+    - Непосредственно фреймворки для написания тестов
+    - Assertion библиотеки
+    - Библиотеки для определения степени покрытия приложения тестами
+
+ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ *
+  - Метод requestAnimationFrame() - https://learn.javascript.ru/js-animation
+
+ДОМАШНЕЕ ЗАДАНИЕ
+  Задание 1:
+    Сбросить преподавателю итоговый проект и видео с презентацией его.
